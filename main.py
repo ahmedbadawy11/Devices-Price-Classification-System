@@ -21,24 +21,19 @@ app = Flask(__name__)
 def predict():
     # Get the JSON data from the request
     data = request.get_json(force=True)
-    print (data)
+   
     df = pd.DataFrame(data, index=[0])
     # Extract the features from the JSON data and select the relevant features
-    # print (df)
+   
     new_X_train = df.loc[:, selected_features_static]
-    print (new_X_train)
+    
     # features = np.array([data[str(i)] for i in selected_features_static]).reshape(1, -1)
-    # print(features)
-
-    
-    
-
+   
 
     # Scale the selected features using the static pipeline
     feature_names = scaler_static.get_feature_names_out()
     new_X_train.loc[:, feature_names.tolist()] = scaler_static.transform(new_X_train.loc[:, feature_names.tolist()])
-    print ("////////////")
-    print (new_X_train)
+  
     # scaled_features = scaler_static.transform(features)
 
     # Make prediction using the static model
