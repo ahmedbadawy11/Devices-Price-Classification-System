@@ -7,11 +7,12 @@ This guide provides instructions on how to run and interact with the Devices Pri
 Before running the application, ensure that you have the following installed:
 - Python (version 3.x)
 - Flask
+- pickle
+- numpy
+- pandas
 - Postman (optional, for API testing)
 
 ## Steps to Run the Application
 
 1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/your-repo-url.git
-   cd your-project-directory
+2. Run main.py
