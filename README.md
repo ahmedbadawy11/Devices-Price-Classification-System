@@ -18,8 +18,8 @@ Before running the application, ensure that you have the following installed:
 2. **Run main.py**
 
 ## Testing with Postman (Optional)
-Open Postman and create a new request.
-Set the request type to POST and enter the URL http://localhost:5000/predict.
-Set the request headers if required (e.g., Content-Type: application/json).
-Input the device specifications in JSON format in the request body.
-Click on Send to receive the predicted price response.
+- Open Postman and create a new request.
+- Set the request type to POST and enter the URL http://localhost:5000/predict.
+- Set the request headers if required (e.g., Content-Type: application/json).
+- Input the device specifications in JSON format in the request body.
+- Click on Send to receive the predicted price response.
