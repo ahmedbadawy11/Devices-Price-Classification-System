@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootProjectEntitiesApplication<SpringBoot-Project-Entities>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.AhmedBadawy.SpringBoot.Project.Entities.SpringBootProjectEntitiesApplication",
+            "projectName": "SpringBoot-Project-Entities",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
