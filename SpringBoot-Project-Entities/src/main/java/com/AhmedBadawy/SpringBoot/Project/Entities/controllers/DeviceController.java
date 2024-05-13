@@ -11,51 +11,50 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/devices")
 public class DeviceController {
-    private final DeviceService deviceService;
 
-    @Autowired
-    public DeviceController(DeviceService deviceService) {
-        this.deviceService = deviceService;
+    @Autowired //do injection
+    private DeviceService deviceService;
+
+// Test Spring
+    @RequestMapping(value ={"test",""} )
+    public  String  Greeting(){
+
+        return "Hello Welcome to  spring";
+
     }
 
-
      // Retrieve a list of all devices
-    @GetMapping
+    @GetMapping(value ={"/",""})
     public ResponseEntity<List<Device>> getAllDevices() {
-        List<Device> devices = deviceService.getAllDevices();
-        return ResponseEntity.ok(devices);
+
+        List<Device> Result=deviceService.findAll();
+        return   new ResponseEntity<>(Result,HttpStatus.OK);
     }
 
 
     // Retrieve details of a specific device by ID
     @GetMapping("/{id}")
-    public ResponseEntity<Device> getDeviceById(@PathVariable Long id) {
-        Device device = deviceService.getDeviceById(id);
-        return ResponseEntity.ok(device);
+    public ResponseEntity<Device> getDevice_by_ID(@PathVariable String id) {
+
+        Device Result=deviceService.getById(id);
+
+        return new ResponseEntity<>(Result,HttpStatus.OK);
     }
 
-  
     // Add a new device
-    @PostMapping
-    public ResponseEntity<Device> addDevice(@RequestBody Device device) {
-        Device savedDevice = deviceService.addDevice(device);
-        return new ResponseEntity<>(savedDevice, HttpStatus.CREATED);
+    @PostMapping(value ={"","/"})
+    public ResponseEntity<Device>  addDevice(@RequestBody Device device) {
+
+        Device add=deviceService.CreatDevice(device);
+         return new ResponseEntity<>(add,HttpStatus.CREATED);
+
     }
- 
 
-     // Predict the price for a device and save the result in the device entity
-     @PostMapping("/predict/{deviceId}")
-     public ResponseEntity<Device> predictAndSavePrice(@PathVariable Long deviceId) {
-         Device device = deviceService.getDeviceById(deviceId);
-         // Call Python API to predict price and update device entity
-         // Implement your logic here to integrate with Python API
- 
-         // For demo purposes, let's assume the price prediction is successful
-         device.setPriceRange(1); // Set a dummy price range as an example
- 
-         Device updatedDevice = deviceService.updateDevice(device);
-         return ResponseEntity.ok(updatedDevice);
-     }
 
-    // Other endpoints as needed
+
+
+
+
+
+
 }
