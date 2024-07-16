@@ -15,6 +15,7 @@ Before running the application, ensure that you have the following installed:
 ## Steps to Run the Application
 
 1. **Clone the Repository**
+
 2. **Run main.py**
 
 ## Testing with Postman (Optional)
